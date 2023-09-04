@@ -1,0 +1,31 @@
+<div data-controller="exam" class="mx-auto">
+  <div class="flex flex-col container border border-gray-200 rounded p-8 w-[480px] mx-auto">
+    <div class="mx-4 text-xl">適正テスト</div>
+    <div class="mx-4 mt-8">あなたの素質は</div>
+
+    <form action="/guild/score" method="post" id="exam">
+      <div class="grid grid-cols-3 gap-2">
+        <% %w(str dex con int wis cha).each do |abi| %>
+          <div class="flex m-2">
+            <div class="p-2"><%= abi %></div>
+            <input type="number" name="<%= abi %>" data-exam-target="<%= abi %>" class="p-2 w-2/3 rounded text-sm">
+          </div>
+        <% end %>
+      </div>
+
+      <div class="flex flex-col">
+        <div data-action="click->exam#diceroll" class="cursor-pointer bg-blue-500 text-white text-center p-2 my-2 mx-4 mt-8 rounded">
+          テストを受ける
+        </div>
+
+        <div class="text-xl mt-8">登録クラス</div>
+        <input data-exam-target="fighter" type="submit" name="fighter" value="戦士の適正あり" hidden="" form="exam" class="cursor-pointer bg-green-500 text-white text-center p-2 my-2 mx-4 rounded">
+        <input data-exam-target="cleric" type="submit" name="cleric" value="僧侶の適正あり" hidden="" form="exam" class="cursor-pointer bg-green-500 text-white text-center p-2 my-2 mx-4 rounded">
+        <input data-exam-target="wizard" type="submit" name="wizard" value="魔法使いの適正あり" hidden="" form="exam" class="cursor-pointer bg-green-500 text-white text-center p-2 my-2 mx-4 rounded">
+        <input data-exam-target="thief" type="submit" name="thief" value="盗賊の適正あり" hidden="" form="exam" class="cursor-pointer bg-green-500 text-white text-center p-2 my-2 mx-4 rounded">
+        <input data-exam-target="paradin" type="submit" name="paradin" value="聖騎士の適正あり" hidden="" form="exam" class="cursor-pointer bg-green-500 text-white text-center p-2 my-2 mx-4 rounded">
+        <input data-exam-target="barbarian" type="submit" name="barbarian" value="狂戦士の適正あり" hidden="" form="exam" class="cursor-pointer bg-green-500 text-white text-center p-2 my-2 mx-4 rounded">
+      </div>
+    </form>
+  </div>
+</div>
