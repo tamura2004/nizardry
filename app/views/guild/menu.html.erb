@@ -1,37 +1,24 @@
 <div data-controller="dungeon">
-  <div class="grid grid-cols-3 gap-4">
-    <div
-      class="flex justify-center items-center w-24 h-24 p-2 m-2 rounded text-center text-4xl border border-gray-300"
-      data-dungeon-target="left"
-      data-action="click->dungeon#left"
-    ></div>
-    <div
-      class="flex justify-center items-center w-24 h-24 p-2 m-2 rounded text-center text-4xl border border-gray-300"
-      data-dungeon-target="mid"
-      data-action="click->dungeon#action"
-    ></div>
-    <div
-      class="flex justify-center items-center w-24 h-24 p-2 m-2 rounded text-center text-4xl border border-gray-300"
-      data-dungeon-target="right"
-      data-action="click->dungeon#right"
-    ></div>
-    <div
-      class="flex justify-center items-center w-24 h-24 p-2 m-2 rounded bg-blue-500 text-white text-center text-4xl"
-      data-action="click->dungeon#left"
-    >
-      ＜
+  <div class="grid grid-cols-10 gap-1 m-2">
+    <% 10.times do |y| %>
+      <% 10.times do |x| %>
+        <div
+          class="flex justify-center items-center w-8 h-8 scale-0 p-2 m-2 rounded text-center border border-gray-300 transition-all"
+          data-dungeon-target="g<%= y %><%= x %>"
+        ></div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="border border-gray-200 rounded text-xl text-center h-12 p-2 m-2" data-dungeon-target="box">
+  </div>
+
+  <div class="grid grid-cols-3 gap-2 m-2">
+    <div class="flex mx-auto justify-center items-center w-24 h-24 p-2 m-2 rounded bg-blue-500 text-white text-center text-4xl" data-action="click->dungeon#left" >＜</div>
+    <div>
+      <div class="flex mx-auto justify-center items-center w-24 h-12 p-2 m-2 rounded bg-blue-500 text-white text-center text-4xl" data-action="click->dungeon#up" >∧</div>
+      <div class="flex mx-auto justify-center items-center w-24 h-12 p-2 m-2 rounded bg-blue-500 text-white text-center text-4xl" data-action="click->dungeon#down" >Ｖ</div>
     </div>
-    <div
-      class="w-24 h-24 p-2 m-2 rounded bg-blue-500 text-white"
-      data-dungeon-target="box"
-    >
-      center
-    </div>
-    <div
-      class="flex justify-center items-center w-24 h-24 p-2 m-2 rounded bg-blue-500 text-white text-center text-4xl"
-      data-action="click->dungeon#right"
-    >
-      ＞
-    </div>
+    <div class="flex mx-auto justify-center items-center w-24 h-24 p-2 m-2 rounded bg-blue-500 text-white text-center text-4xl" data-action="click->dungeon#right" >＞</div>
   </div>
 </div>
